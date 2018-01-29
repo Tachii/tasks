@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Log;
 
 trait TasksControllerTrait
 {
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function storeTask(Request $request)
     {
         try {
@@ -20,6 +24,10 @@ trait TasksControllerTrait
         }
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function deleteTask(Request $request)
     {
         try {
