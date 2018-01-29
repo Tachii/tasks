@@ -1,0 +1,28 @@
+{
+    "name": "b4u/tasks",
+    "description": "This package allows to attach 'tasks' functionality to selected Model/Entity.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gleb Zaveruha",
+            "email": "gzaveruha@best4u.md"
+        }
+    ],
+    "require": {},
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "b4u\\tasks\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "B4u\\Tasks\\TasksServiceProvider"
+            ],
+            "aliases": {
+                "Mongo": "B4u\\Tasks\\TasksServiceProvider"
+            }
+        }
+    }
+}
