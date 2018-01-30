@@ -17,7 +17,7 @@ class TasksModuleServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/resources/lang/en/tasks.php' => resource_path('lang/en/tasks'),
-        ]);
+            __DIR__.'/resources/lang/en/tasks.php.stub' => resource_path('lang/en/tasks.php'),
+        ], 'translations');
     }
 }
