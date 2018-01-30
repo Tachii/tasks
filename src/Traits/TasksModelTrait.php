@@ -1,4 +1,7 @@
 <?php
+
+namespace  B4u\TasksModule\Traits;
+
 use Src\Models\Tasks;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace  B4u\Tasks;
+namespace  B4u\TasksModule\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,5 +1,8 @@
 <?php
 
+
+namespace  B4u\TasksModule\Traits;
+
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
