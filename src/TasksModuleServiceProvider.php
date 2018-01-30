@@ -15,7 +15,7 @@ class TasksModuleServiceProvider extends ServiceProvider
                 __DIR__ . '/../database/migrations/create_tasks_table.php.stub' => $this->app->databasePath() . "/migrations/{$timestamp}_create_tasks_table.php",
             ], 'migrations');
         }
-Z
+
         $this->publishes([
             __DIR__.'/resources/lang/en/tasks.php.stub' => resource_path('lang/en/tasks'),
         ]);
