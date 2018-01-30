@@ -2,8 +2,6 @@
 
 namespace  B4u\TasksModule;
 
-use Illuminate\Support\ServiceProvider;
-
 class TasksModuleServiceProvider extends ServiceProvider
 {
     public function boot()
