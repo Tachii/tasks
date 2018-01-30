@@ -7,5 +7,7 @@
  */
 
 return [
-    ''
+    'saved_text' => 'Task saved successfully',
+    'error_text' => 'Something went wrong during task deletion',
+    'deleted_text' => 'Task successfully deleted',
 ];

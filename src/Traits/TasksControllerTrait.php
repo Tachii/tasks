@@ -21,7 +21,7 @@ trait TasksControllerTrait
             $this->entity->assignedTasks()->create($request->all());
             return redirect()->back()->with(
                 'message',
-                trans('tasks.updated_text')
+                trans('tasks.saved_text')
             );
         } catch (Exception $exception) {
             Log::error('Task save error: ' . $exception->getMessage());
