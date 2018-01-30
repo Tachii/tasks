@@ -16,8 +16,10 @@ class TasksModuleServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang/en', 'tasks');
+
         $this->publishes([
-            __DIR__.'/resources/lang/en/tasks.php.stub' => resource_path('lang/en/tasks.php'),
-        ], 'translations');
+            __DIR__.'/resources/lang/en' => resource_path('lang/en/tasks'),
+        ]);
     }
 }
