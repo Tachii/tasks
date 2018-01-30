@@ -1,5 +1,8 @@
 {
     "name": "b4u/tasks",
+    "repository": {
+
+    },
     "description": "This package allows to attach 'tasks' functionality to selected Model/Entity.",
     "type": "library",
     "authors": [
@@ -21,7 +24,7 @@
                 "B4u\\Tasks\\TasksServiceProvider"
             ],
             "aliases": {
-                "Mongo": "B4u\\Tasks\\TasksServiceProvider"
+                "Tasks": "B4u\\Tasks\\TasksServiceProvider"
             }
         }
     }
