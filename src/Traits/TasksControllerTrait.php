@@ -1,47 +1,49 @@
 <?php
 
+namespace B4u\TasksModule\Traits;
 
-namespace  B4u\TasksModule\Traits;
-
+use B4u\TasksModule\Http\Requests\TaskStoreRequest;
+use B4u\TasksModule\Models\Tasks;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
 
 trait TasksControllerTrait
 {
     /**
-     * @param Request $request
+     * @param TaskStoreRequest $request
      * @return mixed
      */
-    public function storeTask(Request $request)
+    public function storeTask(TaskStoreRequest $request)
     {
         try {
-            $this->entity->tasks()->create($request->all());
+            $this->entity->assignedTasks()->create($request->all());
             return redirect()->back()->with(
                 'message',
-                trans('common.messages.updated.updated_text')
+                trans('tasks.updated_text')
             );
         } catch (Exception $exception) {
             Log::error('Task save error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => @trans('common.messages.errors.text')])->withInput($request->all());
+            return redirect()->back()->withErrors(['message' => trans('tasks.error_text')])->withInput($request->all());
         }
     }
 
     /**
-     * @param Request $request
+     * @param Tasks $task
      * @return mixed
      */
-    public function deleteTask(Request $request)
+    public function deleteTask(Tasks $task)
     {
         try {
-            $this->entity->tasks()->find($request->get('task_id'))->delete();
+            $task->delete();
             return redirect()->back()->with(
                 'message',
-                trans('common.messages.deleted.deleted_text')
+                trans('tasks.deleted_text')
             );
         } catch (Exception $exception) {
             Log::error('Task delete error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => @trans('common.messages.errors.text')])->withInput($request->all());
+            return redirect()->back()->withErrors(['message' => @trans('tasks.error_text')]);
         }
     }
 }
