@@ -36,5 +36,4 @@
         </div>
     </div>
 </div>
-@include('players::tasks.modals.task_create')
-
+@include('vendor.tasks.modals.task_create')
