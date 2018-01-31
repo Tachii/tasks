@@ -23,7 +23,7 @@ class TaskComposerProvider
     }
 
     /**
-     * @param null $currentComposer
+     * @param TasksComposer $currentComposer
      */
     public function setCurrentComposer(TasksComposer $currentComposer)
     {
