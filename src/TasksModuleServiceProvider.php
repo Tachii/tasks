@@ -36,10 +36,14 @@ class TasksModuleServiceProvider extends ServiceProvider
             __DIR__ . '/resources/views' => resource_path('views/vendor/tasks'),
         ]);
 
+        $this->publishes([
+            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/ViewComposers'),
+        ]);
+
         // ViewCreator for tasks view
         // Variables assigned via View::creator can be changed inside of the controller.
-        View::creator(
-            'views.index', TasksComposer::class
+        View::composer(
+            'views.index', app_path('Http/Vendor/ViewComposers/TasksComposer')
         );
     }
 }

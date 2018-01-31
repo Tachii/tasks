@@ -18,12 +18,10 @@
                     </div>
                     <div class="form-group">
                         <label for="sel1" class="control-label">Responsible person</label>
-                        <input type="hidden" name="issuer_type" value="{{get_class($responsibles)}}">
-                        <select class="form-control" id="sel1">
-                            @foreach($responsibles as $id => $responsible)
-                                <option name="responsible_id" value="{{$id}}">$responsible</option>
-                            @endforeach
-                        </select>
+                            <input type="hidden" name="issuer_type" value="">
+                            <select class="form-control" id="sel1">
+                                <option name="responsible_id" value="1">ResponsiblePerson1</option>
+                            </select>
                     </div>
                 </div>
                 <div class="modal-footer">
