@@ -16,15 +16,15 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('issuer_id')->comment = "Entity:id that creates the task";
-            $table->string('issuer_type')->comment = "Entity:type that creates the task";;
+            $table->integer('issuer_id')->comment = 'Entity:id that creates the task';
+            $table->string('issuer_type')->comment = 'Entity:type that creates the task';;
 
             //Entity that is responsible for the task
-            $table->integer('assigned_id')->comment = "Entity:id that is responsible for the task";
-            $table->string('assigned_type')->comment = "Entity:type that is responsible for the task";
+            $table->integer('assigned_id')->comment = 'Entity:id that is responsible for the task';
+            $table->string('assigned_type')->comment = 'Entity:type that is responsible for the task';
 
-            $table->string('description')->comment = "Description of the task";
-            $table->date('end_date')->comment = "Due date of the task";
+            $table->string('description')->comment = 'Description of the task';
+            $table->date('end_date')->comment = 'Due date of the task';
 
             $table->timestamps();
         });

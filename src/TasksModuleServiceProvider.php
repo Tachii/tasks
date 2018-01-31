@@ -37,7 +37,7 @@ class TasksModuleServiceProvider extends ServiceProvider
         ]);
 
         // ViewCreator for tasks view
-        // Variables assigned vie ViewCreator can be changed inside of the controller.
+        // Variables assigned via View::creator can be changed inside of the controller.
         View::creator(
             'views.index', TasksComposer::class
         );
