@@ -2,11 +2,18 @@
 
 namespace App\Http\Vendor\Tasks\ViewComposers;
 
+use B4u\TasksModule\TaskComposerProvider;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;
 
 class TasksComposer
 {
+
+    public function __construct(TaskComposerProvider $provider)
+    {
+        dd($provider);
+    }
+
     /**
      * Bind data to the view.
      *

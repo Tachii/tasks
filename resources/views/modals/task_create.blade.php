@@ -21,10 +21,10 @@
                             <input type="hidden" name="issuer_type" value="">
                             <select class="form-control" id="sel1">
                                 @foreach($responsibles as $id => $name)
-                                    <option name="responsible_id" value="{{$id}}">$name</option>
+                                    <option name="responsible_id" value="{{$id}}">{{$name}}</option>
                                 @endforeach
                             </select>
-                    </div>
+                    </div>b
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-simple" data-dismiss="modal">Close</button>
