@@ -42,7 +42,7 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // ViewComposer for tasks view
         View::composer(
-            'tasks::index', app_path('Http/Vendor/Tasks/ViewComposers/TasksComposer')
+            'tasks::index', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
         );
     }
 }
