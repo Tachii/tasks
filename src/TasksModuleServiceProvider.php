@@ -2,7 +2,6 @@
 
 namespace B4u\TasksModule;
 
-use App\Http\ViewComposers\TasksComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
