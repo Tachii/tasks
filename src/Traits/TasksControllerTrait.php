@@ -5,9 +5,7 @@ namespace B4u\TasksModule\Traits;
 use B4u\TasksModule\Http\Requests\TaskStoreRequest;
 use B4u\TasksModule\Models\Tasks;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Database\Eloquent\Model;
 
 trait TasksControllerTrait
 {
@@ -27,6 +25,8 @@ trait TasksControllerTrait
             Log::error('Task save error: ' . $exception->getMessage());
             return redirect()->back()->withErrors(['message' => trans('tasks.error_text')])->withInput($request->all());
         }
+
+
     }
 
     /**
