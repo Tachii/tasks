@@ -22,26 +22,24 @@ class TasksModuleServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        // Loading and pubishing translations
+        // Pubishing translations
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
 
         $this->publishes([
-            __DIR__ . '/resources/lang/en' => resource_path('lang/vendor/en/tasks'),
+            __DIR__ . '/../resources/lang/en' => resource_path('lang/en/vendor/tasks'),
+            __DIR__ . '/../resources/lang/en' => resource_path('lang/nl/vendor/tasks'),
         ]);
 
-        // Loading views
-        $this->loadViewsFrom(__DIR__ . 'resources/views', 'tasks');
-
+        // Loading views and View composers
         $this->publishes([
-            __DIR__ . '/resources/views' => resource_path('views/vendor/tasks'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/tasks'),
         ]);
 
         $this->publishes([
             __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/ViewComposers'),
         ]);
 
-        // ViewCreator for tasks view
-        // Variables assigned via View::creator can be changed inside of the controller.
+        // ViewComposer for tasks view
         View::composer(
             'views.index', app_path('Http/Vendor/ViewComposers/TasksComposer')
         );
