@@ -22,7 +22,7 @@ class TasksModuleServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        // Pubishing translations
+        // Loading and publishing translations
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
 
         $this->publishes([
