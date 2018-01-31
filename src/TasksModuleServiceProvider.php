@@ -1,13 +1,17 @@
 <?php
 
-namespace  B4u\TasksModule;
+namespace B4u\TasksModule;
 
 use Illuminate\Support\ServiceProvider;
 
 class TasksModuleServiceProvider extends ServiceProvider
 {
+    /**
+     * Function fires when you run  'php artisan vendor publish'.
+     */
     public function boot()
     {
+        //Creating migration with current timestamp of the user.
         if (!class_exists('CreateTasksTable')) {
             $timestamp = date('Y_m_d_His', time());
 
@@ -16,10 +20,11 @@ class TasksModuleServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        $this->loadTranslationsFrom(__DIR__.'/resources/lang/en', 'tasks');
+        //Loading and pubishing translations
+        $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
 
         $this->publishes([
-            __DIR__.'/resources/lang/en' => resource_path('lang/en/tasks'),
+            __DIR__ . '/resources/lang/en' => resource_path('lang/en/tasks'),
         ]);
     }
 }
