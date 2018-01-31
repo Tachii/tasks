@@ -35,12 +35,12 @@ class TasksModuleServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/ViewComposers'),
+            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Tasks/ViewComposers'),
         ]);
 
         // ViewComposer for tasks view
         View::composer(
-            'views.index', app_path('Http/Vendor/ViewComposers/TasksComposer')
+            'views.index', app_path('Http/Vendor/Tasks/ViewComposers/TasksComposer')
         );
     }
 }
