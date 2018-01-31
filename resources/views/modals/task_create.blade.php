@@ -20,7 +20,9 @@
                         <label for="sel1" class="control-label">Responsible person</label>
                             <input type="hidden" name="issuer_type" value="">
                             <select class="form-control" id="sel1">
-                                <option name="responsible_id" value="1">ResponsiblePerson1</option>
+                                @foreach($responsibles as $id => $name)
+                                    <option name="responsible_id" value="{{$id}}">$name</option>
+                                @endforeach
                             </select>
                     </div>
                 </div>
