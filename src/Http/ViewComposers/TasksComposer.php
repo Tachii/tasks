@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\ViewComposers;
+namespace App\Http\Vendor\Tasks\ViewComposers;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;

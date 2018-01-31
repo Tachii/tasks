@@ -25,6 +25,8 @@ class TasksModuleServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
         $this->publishes([
             __DIR__ . '/../resources/lang' => resource_path('lang/en/vendor/tasks'),
+        ]);
+        $this->publishes([
             __DIR__ . '/../resources/lang' => resource_path('lang/nl/vendor/tasks'),
         ]);
 
@@ -40,7 +42,7 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // ViewComposer for tasks view
         View::composer(
-            'views.index', app_path('Http/Vendor/Tasks/ViewComposers/TasksComposer')
+            'tasks::index', app_path('Http/Vendor/Tasks/ViewComposers/TasksComposer')
         );
     }
 }
