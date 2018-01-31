@@ -4,6 +4,13 @@ namespace B4u\TasksModule\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class TaskStoreRequest
+ *
+ * Used for request validation.
+ *
+ * @package B4u\TasksModule\Http\Requests
+ */
 class TaskStoreRequest extends FormRequest
 {
     /**
@@ -15,6 +22,8 @@ class TaskStoreRequest extends FormRequest
     {
         return [
             'descriptions' => 'required|string|max:500',
+            'issuer_id' => 'required|integer',
+            'issuer_type' => 'required|string|max:500',
             'assigned_id' => 'required|integer',
             'assigned_type' => 'required|string|max:500',
             'end_date' => 'required|date',

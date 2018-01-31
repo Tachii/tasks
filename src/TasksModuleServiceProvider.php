@@ -2,6 +2,8 @@
 
 namespace B4u\TasksModule;
 
+use App\Http\ViewComposers\TasksComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class TasksModuleServiceProvider extends ServiceProvider
@@ -11,7 +13,7 @@ class TasksModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Creating migration with current timestamp of the user.
+        // Creating migration with current timestamp of the user.
         if (!class_exists('CreateTasksTable')) {
             $timestamp = date('Y_m_d_His', time());
 
@@ -20,11 +22,17 @@ class TasksModuleServiceProvider extends ServiceProvider
             ], 'migrations');
         }
 
-        //Loading and pubishing translations
+        // Loading and pubishing translations
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
 
         $this->publishes([
             __DIR__ . '/resources/lang/en' => resource_path('lang/en/tasks'),
         ]);
+
+        // ViewCreator for tasks view
+        // Variables assigned vie ViewCreator can be changed inside of the controller.
+        View::creator(
+            'views.index', TasksComposer::class
+        );
     }
 }

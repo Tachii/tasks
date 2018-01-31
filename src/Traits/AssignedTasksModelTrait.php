@@ -5,11 +5,11 @@ namespace B4u\TasksModule\Traits;
 use B4u\TasksModule\Models\Tasks;
 
 /**
+ * Trait AssignedTasksModelTrait
  *
  * You include this in a model that must have tasks assigned to it.
  *
- * Trait TasksModelTrait
- * @package Tasks\Src\Traits
+ * @package B4u\TasksModule\Traits
  */
 trait AssignedTasksModelTrait
 {

@@ -7,16 +7,17 @@ use B4u\TasksModule\Models\Tasks;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
+//@TODO replace with resource controller
 trait TasksControllerTrait
 {
     /**
      * @param TaskStoreRequest $request
      * @return mixed
      */
-    public function storeTask(TaskStoreRequest $request)
+    public function storeTask(TaskStoreRequest $request, $issuer, $assigned)
     {
         try {
-            $this->entity->assignedTasks()->create($request->all());
+            Tasks::firstOrcreate($request->all());
             return redirect()->back()->with(
                 'message',
                 trans('tasks.saved_text')
@@ -25,8 +26,6 @@ trait TasksControllerTrait
             Log::error('Task save error: ' . $exception->getMessage());
             return redirect()->back()->withErrors(['message' => trans('tasks.error_text')])->withInput($request->all());
         }
-
-
     }
 
     /**
