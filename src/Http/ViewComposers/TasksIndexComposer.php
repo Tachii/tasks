@@ -24,6 +24,6 @@ class TasksIndexComposer
     public function compose(View $view)
     {
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
-        $view->with('issuer', User::first());
+        $view->with('tasks', Tasks::all());
     }
 }
