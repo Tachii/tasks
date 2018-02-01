@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 class TasksController extends Controller
 {
@@ -43,12 +44,22 @@ class TasksController extends Controller
     public function store(TaskStoreRequest $request)
     {
         dd($request->all());
+        try {
+            Tasks::firstOrcreate($request->all());
+            return redirect()->back()->with(
+                'message',
+                trans('tasks::saved_text')
+            );
+        } catch (Exception $exception) {
+            Log::error('Task save error: ' . $exception->getMessage());
+            return redirect()->back()->withErrors(['message' => trans('tasks::error_text')])->withInput($request->all());
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Tasks  $tasks
+     * @param  Tasks $tasks
      * @return \Illuminate\Http\Response
      */
     public function show(Tasks $tasks)
@@ -59,7 +70,7 @@ class TasksController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Tasks  $tasks
+     * @param  Tasks $tasks
      * @return \Illuminate\Http\Response
      */
     public function edit(Tasks $tasks)
@@ -70,8 +81,8 @@ class TasksController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  Tasks  $tasks
+     * @param  \Illuminate\Http\Request $request
+     * @param  Tasks $tasks
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Tasks $tasks)
@@ -82,7 +93,7 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tasks  $tasks
+     * @param  Tasks $tasks
      * @return \Illuminate\Http\Response
      */
     public function destroy(Tasks $tasks)

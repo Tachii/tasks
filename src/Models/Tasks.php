@@ -17,7 +17,12 @@ class Tasks extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'end_date'
+        'description',
+        'issuer_id',
+        'issuer_type',
+        'assigned_id',
+        'assigned_type',
+        'end_date',
     ];
 
     /**
