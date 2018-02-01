@@ -42,7 +42,7 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // ViewComposers for tasks view
         View::composer(
-            'tasks::modals.task_create', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
+            'tasks::modals.index', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
         );
 
         // Loading routes

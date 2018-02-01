@@ -47,6 +47,8 @@
                 </div>
             </div>
         @endforeach
+    @else
+        @lang('tasks::tasks.no_tasks')
     @endif
 </div>
 @include('tasks::modals.task_create')
