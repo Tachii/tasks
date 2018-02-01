@@ -31,7 +31,7 @@ class TaskStoreRequest extends FormRequest
     public function rules() : array
     {
         return [
-            'descriptions' => 'required|string|max:500',
+            'description' => 'required|string|max:500',
             'issuer_id' => 'required|integer',
             'issuer_type' => 'required|string|max:500',
             'assigned_id' => 'required|integer',
