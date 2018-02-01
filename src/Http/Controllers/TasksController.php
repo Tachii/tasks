@@ -4,6 +4,7 @@ namespace B4u\TasksModule\Http\Controllers;
 
 use B4u\TasksModule\Http\Requests\TaskStoreRequest;
 use B4u\TasksModule\Models\Tasks;
+use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -46,12 +47,12 @@ class TasksController extends Controller
         try {
             Tasks::create($request->all());
             return redirect()->back()->with(
-                'message',
-                trans('tasks::saved_text')
+                'success',
+                trans('tasks::tasks.saved_text')
             );
         } catch (\Exception $exception) {
             Log::error('Task save error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => trans('tasks::error_text')])->withInput($request->all());
+            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')])->withInput($request->all());
         }
     }
 
