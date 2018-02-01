@@ -2,6 +2,7 @@
 
 namespace B4u\TasksModule\Http\Controllers;
 
+use B4u\TasksModule\Http\Requests\TaskStoreRequest;
 use B4u\TasksModule\Models\Tasks;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -36,10 +37,10 @@ class TasksController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  TaskStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskStoreRequest $request)
     {
         dd($request->all());
     }
