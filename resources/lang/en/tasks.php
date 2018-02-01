@@ -9,7 +9,10 @@
 return [
     'assigned_to' => 'Assigned To',
     'button_create_new' => 'Create',
+    'button_yes' => 'Yes',
+    'button_no' => 'No',
     'close' => 'Close',
+    'confirm_delete' => 'Are you sure you want to delete Task?',
     'deleted_text' => 'Task successfully deleted',
     'due_to' => 'due',
     'due_date_placeholder' => '--/--/----',

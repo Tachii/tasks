@@ -28,7 +28,7 @@
     @endif
 </div>
 
-@hasSection('scripts')
+@section('scripts')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <script type="text/javascript">
@@ -37,17 +37,17 @@
             $this = $(this);
             $.confirm({
                 title: '',
-                content: '<p style="text-align:center;font-size:18px;">{{ trans('campaigns::campaigns.messages.confirm_delete_player') }}</p>',
+                content: '<p style="text-align:center;font-size:18px;">{{ trans('tasks::tasks.confirm_delete') }}</p>',
                 buttons: {
                     yes: {
-                        text: '{{ trans('campaigns::campaigns.button.yes') }}',
+                        text: '{{ trans('tasks::tasks.button_yes') }}',
                         btnClass: 'btn-danger',
                         action: function () {
                             $this.parent().submit();
                         }
                     },
                     no: {
-                        text: '{{ trans('campaigns::campaigns.button.no') }}',
+                        text: '{{ trans('tasks::tasks.button_no') }}',
                         btnClass: 'btn-blue',
                         action: function () {
 
@@ -57,4 +57,4 @@
             });
         });
     </script>
-@endif
+@endsection
