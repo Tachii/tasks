@@ -74,16 +74,7 @@ class TasksController extends Controller
      */
     public function edit(Tasks $tasks)
     {
-        try {
-            $tasks->delete();
-            return redirect()->back()->with(
-                'success',
-                trans('tasks::tasks.deleted_text')
-            );
-        } catch (\Exception $exception) {
-            Log::error('Task delete error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')]);
-        }
+
     }
 
     /**
@@ -106,6 +97,15 @@ class TasksController extends Controller
      */
     public function destroy(Tasks $tasks)
     {
-        //
+        try {
+            $tasks->delete();
+            return redirect()->back()->with(
+                'success',
+                trans('tasks::tasks.deleted_text')
+            );
+        } catch (\Exception $exception) {
+            Log::error('Task delete error: ' . $exception->getMessage());
+            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')]);
+        }
     }
 }
