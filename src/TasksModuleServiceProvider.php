@@ -23,15 +23,18 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // Loading and publishing translations
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/en', 'tasks');
+
         $this->publishes([
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/tasks'),
         ]);
+
         $this->publishes([
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/tasks'),
         ]);
 
         // Loading and publishing views and View composers
         $this->loadViewsFrom(__DIR__ . 'resources/views', 'tasks');
+
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/tasks'),
         ]);
