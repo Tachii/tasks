@@ -14,7 +14,7 @@ return [
     'due_to' => 'due',
     'error_text' => 'Something went wrong during task deletion',
     'label' => 'Tasks',
-    'new_tas' => 'New Task',
+    'new_task' => 'New Task',
     'responsible_person' => 'Responsible Person',
     'save' => 'Save',
     'saved_text' => 'Task saved successfully',
