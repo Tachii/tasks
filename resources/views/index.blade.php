@@ -2,13 +2,13 @@
     <div class="flex-head">
         <div class="flex-head-direction">
             <div class="flex-head-item">
-                <div class="panel-title">Tasks</div>
+                <div class="panel-title">@lang('tasks::tasks.label')</div>
             </div>
         </div>
         <div class="flex-head-direction">
             <div class="flex-head-item">
                 <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#taskCreateModal">
-                    <em>Toevoegen</em>
+                    <em>@lang('tasks::tasks.button_create_new')</em>
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -18,9 +18,9 @@
 <div class="info-list">
     <div class="info-item">
         <div class="info-item-content">
-            <h3>Bericht geplaatst door ‘Pieter Verkerk’</h3>
-            <div class="meta">Geplaatst door
-                <span class="green-text">Het Systeem</span>op
+            <h3>This is task content here</h3>
+            <div class="meta">@lang('tasks::tasks.assigned_to')
+                <span class="green-text">John Doe</span>@lang('tasks::tasks.due_to')
                 <span class="green-text">7 september 2017</span>
             </div>
         </div>
@@ -36,4 +36,4 @@
         </div>
     </div>
 </div>
-@include('vendor.tasks.modals.task_create')
+@include('tasks::modals.task_create')
