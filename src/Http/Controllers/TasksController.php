@@ -43,14 +43,13 @@ class TasksController extends Controller
      */
     public function store(TaskStoreRequest $request)
     {
-        dd($request->all());
         try {
-            Tasks::firstOrcreate($request->all());
+            Tasks::create($request->all());
             return redirect()->back()->with(
                 'message',
                 trans('tasks::saved_text')
             );
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             Log::error('Task save error: ' . $exception->getMessage());
             return redirect()->back()->withErrors(['message' => trans('tasks::error_text')])->withInput($request->all());
         }
