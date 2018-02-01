@@ -44,5 +44,8 @@ class TasksModuleServiceProvider extends ServiceProvider
         View::composer(
             'tasks::modals.task_create', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
         );
+
+        // Loading routes
+        $this->loadRoutesFrom(__DIR__.'../routes/routes.php');
     }
 }
