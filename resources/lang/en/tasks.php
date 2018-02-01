@@ -12,6 +12,7 @@ return [
     'close' => 'Close',
     'deleted_text' => 'Task successfully deleted',
     'due_to' => 'due',
+    'due_date_placeholder' => '--/--/----',
     'error_text' => 'Something went wrong during task deletion',
     'label' => 'Tasks',
     'new_task' => 'New Task',

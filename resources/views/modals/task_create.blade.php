@@ -14,11 +14,11 @@
                         <textarea rows="5" name="task-modal-1" id="task-modal-1" placeholder="@lang('tasks::tasks.task_description_placeholder')" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" data-datepicker="" placeholder="@lang('tasks::tasks.due_to')" value="" name="filter-field-4">
+                        <input type="text" class="form-control" data-datepicker="" placeholder="@lang('tasks::tasks.due_date_placeholder')" value="" name="filter-field-4">
                     </div>
                     <div class="form-group">
                         <label for="sel1" class="control-label">@lang('tasks::tasks.responsible_person')</label>
-                        <input type="hidden" name="issuer_type" value="">
+                        <input type="hidden" name="issuer_type" value="{{get_class($responsibles)}}">
                         <select class="form-control" id="sel1">
                             @foreach($responsibles as $id => $name)
                                 <option name="responsible_id" value="{{$id}}">{{$name}}</option>
@@ -26,6 +26,8 @@
                         </select>
                     </div>
                 </div>
+                <input type="hidden" name="issuer_id" value="{{$issuer->id}}">
+                <input type="hidden" name="issuer_type" value="{{get_class($issuer)}}">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-simple" data-dismiss="modal">@lang('tasks::tasks.close')</button>
                     <button type="button" class="btn btn-primary">@lang('tasks::tasks.save')</button>

@@ -15,6 +15,7 @@ class TasksComposer
      */
     public function compose(View $view)
     {
+        $view->with('issuer', User::first());
         $view->with('responsibles', User::all()->pluck('name', 'id'));
     }
 }

@@ -40,9 +40,9 @@ class TasksModuleServiceProvider extends ServiceProvider
             __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Tasks/ViewComposers'),
         ]);
 
-        // ViewComposer for tasks view
+        // ViewComposers for tasks view
         View::composer(
-            'tasks::index', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
+            'tasks::modals.task_create', \App\Http\Vendor\Tasks\ViewComposers\TasksComposer::class
         );
     }
 }
