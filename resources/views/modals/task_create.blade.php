@@ -18,8 +18,8 @@
                     </div>
                     <div class="form-group">
                         <label for="sel1" class="control-label">@lang('tasks::tasks.responsible_person')</label>
-                        <input type="hidden" name="responsible_type" value="{{get_class($responsibles)}}">
-                        <select name="responsible_id"  class="form-control" id="sel1">
+                        <input type="hidden" name="assigned_type" value="{{get_class($responsibles)}}">
+                        <select name="assigned_id"  class="form-control" id="sel1">
                             @foreach($responsibles as $id => $name)
                                 <option value="{{$id}}">{{$name}}</option>
                             @endforeach
