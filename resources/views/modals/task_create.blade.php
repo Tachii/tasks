@@ -7,7 +7,6 @@
                 </button>
                 <h4 class="modal-title" id="taskCreateModalLabel">@lang('tasks::tasks.new_task')</h4>
             </div>
-            <form action="#" method="post">
             {{Form::open(['url' => route('tasks.store'), 'method' => 'post'])}}
                 <div class="modal-body">
                     <div class="form-group">
