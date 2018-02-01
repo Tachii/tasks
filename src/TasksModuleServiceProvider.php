@@ -46,6 +46,6 @@ class TasksModuleServiceProvider extends ServiceProvider
         );
 
         // Loading routes
-        $this->loadRoutesFrom(__DIR__.'../routes/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
     }
 }
