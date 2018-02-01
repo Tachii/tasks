@@ -13,7 +13,7 @@ use Illuminate\View\View;
  *
  * @package App\Http\Vendor\Tasks\ViewComposers
  */
-class TasksComposer
+class TasksIndexComposer
 {
     /**
      * Bind data to the view.
@@ -25,7 +25,5 @@ class TasksComposer
     {
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
         $view->with('issuer', User::first());
-        $view->with('responsibles', User::all()->pluck('name', 'id'));
-        $view->with('tasks', Tasks::all());
     }
 }
