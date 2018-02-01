@@ -92,13 +92,13 @@ class TasksController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tasks $tasks
+     * @param  Tasks $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tasks $tasks)
+    public function destroy(Tasks $task)
     {
         try {
-            $tasks->delete();
+            $task->delete();
             return redirect()->back()->with(
                 'success',
                 trans('tasks::tasks.deleted_text')
