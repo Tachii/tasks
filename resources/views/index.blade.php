@@ -25,12 +25,13 @@
     </div>
 @endif
 <div class="info-list">
+    @foreach($tasks as $task)
     <div class="info-item">
         <div class="info-item-content">
-            <h3>This is task content here</h3>
+            <h3>{{$task->description}}</h3>
             <div class="meta">@lang('tasks::tasks.assigned_to')
-                <span class="green-text">John Doe</span>@lang('tasks::tasks.due_to')
-                <span class="green-text">7 september 2017</span>
+                <span class="green-text">John Doe(Replace Me) </span>@lang('tasks::tasks.due_to')
+                <span class="green-text">{{$task->end_date}}</span>
             </div>
         </div>
         <div class="info-item-settings">
@@ -44,5 +45,6 @@
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 @include('tasks::modals.task_create')

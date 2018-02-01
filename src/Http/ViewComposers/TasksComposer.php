@@ -2,6 +2,7 @@
 
 namespace App\Http\Vendor\Tasks\ViewComposers;
 
+use B4u\TasksModule\Models\Tasks;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;
 
@@ -25,5 +26,6 @@ class TasksComposer
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
         $view->with('issuer', User::first());
         $view->with('responsibles', User::all()->pluck('name', 'id'));
+        $view->with('tasks', Tasks::all());
     }
 }

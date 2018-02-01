@@ -4,7 +4,6 @@ namespace B4u\TasksModule\Http\Controllers;
 
 use B4u\TasksModule\Http\Requests\TaskStoreRequest;
 use B4u\TasksModule\Models\Tasks;
-use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -75,7 +74,16 @@ class TasksController extends Controller
      */
     public function edit(Tasks $tasks)
     {
-        //
+        try {
+            $tasks->delete();
+            return redirect()->back()->with(
+                'success',
+                trans('tasks::tasks.deleted_text')
+            );
+        } catch (\Exception $exception) {
+            Log::error('Task delete error: ' . $exception->getMessage());
+            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')]);
+        }
     }
 
     /**
