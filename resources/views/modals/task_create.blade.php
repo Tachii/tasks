@@ -30,7 +30,7 @@
                 <input type="hidden" name="issuer_type" value="{{get_class($issuer)}}">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-simple" data-dismiss="modal">@lang('tasks::tasks.close')</button>
-                    <button type="button" class="btn btn-primary">@lang('tasks::tasks.save')</button>
+                    <button type="submit" class="btn btn-primary">@lang('tasks::tasks.save')</button>
                 </div>
             {{Form::close()}}
         </div>
