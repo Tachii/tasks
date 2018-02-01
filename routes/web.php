@@ -6,4 +6,4 @@
  * Time: 11:57 AM
  */
 
-Route::resource('tasks', 'TasksController');
+Route::resource('tasks', \B4u\TasksModule\Http\Controllers\TasksController::class);

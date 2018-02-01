@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Vendor\Tasks\Controllers;
+namespace B4u\TasksModule\Http\Controllers;
 
 use B4u\TasksModule\Models\Tasks;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
