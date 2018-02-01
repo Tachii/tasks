@@ -46,7 +46,7 @@ class TasksModuleServiceProvider extends ServiceProvider
         );
 
         View::composer(
-            'tasks::index', \App\Http\Vendor\Tasks\ViewComposers\TasksIndexComposer::class
+            'tasks::list', \App\Http\Vendor\Tasks\ViewComposers\TasksListComposer::class
         );
 
         // Loading routes

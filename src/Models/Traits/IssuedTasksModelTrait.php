@@ -1,6 +1,6 @@
 <?php
 
-namespace B4u\TasksModule\Traits;
+namespace B4u\TasksModule\Models\Traits;
 
 use B4u\TasksModule\Models\Tasks;
 

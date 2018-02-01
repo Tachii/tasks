@@ -13,7 +13,7 @@ use Illuminate\View\View;
  *
  * @package App\Http\Vendor\Tasks\ViewComposers
  */
-class TasksIndexComposer
+class TasksListComposer
 {
     /**
      * Bind data to the view.
