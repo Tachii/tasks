@@ -11,7 +11,7 @@
                 </div>
                 <div class="info-item-settings">
                     <div class="ii-ssettings-list">
-                        @can('edit', $task)
+                        @can('update', $task)
                             <a href="#" class="task_edit_handler btn btn-warning btn-sm"
                                data-url="{{route('tasks.edit', ['task' => $task->id])}}">
                                 <span class="glyphicon glyphicon-pencil"></span>
