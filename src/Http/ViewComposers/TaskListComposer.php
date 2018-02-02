@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Vendor\Tasks\ViewComposers;
+namespace App\Http\Vendor\Task\ViewComposers;
 
 use B4u\TasksModule\Models\Task;
 use Illuminate\View\View;

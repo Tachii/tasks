@@ -4,7 +4,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="taskCreateModalLabel">@lang('tasks::tasks.new_task')</h4>
+            <h4 class="modal-title" id="taskCreateModalLabel">@lang('tasks::tasks.edit_task')</h4>
         </div>
         {{Form::open(['url' => route('tasks.store'), 'method' => 'post'])}}
         <div class="modal-body">
@@ -32,7 +32,7 @@
         <input type="hidden" name="issuer_type" value="{{get_class($issuer)}}">
         <div class="modal-footer">
             <button type="button" class="btn btn-simple" data-dismiss="modal">@lang('tasks::tasks.close')</button>
-            <button type="submit" class="btn btn-primary">@lang('tasks::tasks.save')</button>
+            <button type="submit" class="btn btn-primary">@lang('tasks::tasks.update')</button>
         </div>
         {{Form::close()}}
     </div>

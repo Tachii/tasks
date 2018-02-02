@@ -16,6 +16,7 @@ return [
     'deleted_text' => 'Task successfully deleted',
     'due_to' => 'due',
     'due_date_placeholder' => '--/--/----',
+    'edit_task' => 'Edit Task',
     'error_text' => 'Something went wrong during task deletion',
     'label' => 'Tasks',
     'new_task' => 'New Task',
@@ -24,5 +25,6 @@ return [
     'save' => 'Save',
     'saved_text' => 'Task saved successfully',
     'task_description' => 'Description',
-    'task_description_placeholder' => 'Task description here...'
+    'task_description_placeholder' => 'Task description here...',
+    'update' => 'Update'
 ];
