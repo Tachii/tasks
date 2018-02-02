@@ -6,7 +6,7 @@
             </button>
             <h4 class="modal-title" id="taskCreateModalLabel">@lang('tasks::tasks.edit_task')</h4>
         </div>
-        {{Form::open(['url' => route('tasks.edit', ['task' => $task->id]), 'method' => 'post'])}}
+        {{Form::open(['url' => route('tasks.update', ['task' => $task->id]), 'method' => 'patch'])}}
         <div class="modal-body">
             <div class="form-group">
                 <label for="description" class="control-label">@lang('tasks::tasks.task_description')</label>
@@ -20,13 +20,9 @@
                        name="end_date">
             </div>
             <div class="form-group">
-                <label for="sel1" class="control-label">@lang('tasks::tasks.responsible_person')</label>
+                <label for="sel2" class="control-label">@lang('tasks::tasks.responsible_person')</label>
                 <input type="hidden" name="assigned_type" value="{{get_class($responsibles->first())}}">
-                <select name="assigned_id" class="form-control" id="sel1">
-                    @foreach($responsibles as $responsible)
-                        <option value="{{$responsible->id}}">{{$responsible->name}}</option>
-                    @endforeach
-                </select>
+                {{ Form::select('assigned_id', $responsibles->pluck('name', 'id'), $task->assigned->id, ['class' => 'form-control', 'id' => 'sel2']) }}
             </div>
         </div>
         <input type="hidden" name="issuer_id" value="{{$issuer->id}}">

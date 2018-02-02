@@ -7,7 +7,6 @@ use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 
@@ -76,14 +75,15 @@ class TaskController extends Controller
         return response()->view('tasks::modals.task_edit_body', ['task' => $task], 200);
     }
 
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  Task $task
-     * @return \Illuminate\Http\Response
+     * @param TaskStoreRequest $request
+     * @param Task $task
+     * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Task $task)
+    public function update(TaskStoreRequest $request, Task $task)
     {
         try {
             $task->fill($request->all())->save();

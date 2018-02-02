@@ -5,7 +5,7 @@
                 <div class="info-item-content">
                     <h3>{{$task->description}}</h3>
                     <div class="meta">@lang('tasks::tasks.assigned_to')
-                        <span class="green-text">John Doe(Replace Me) </span>@lang('tasks::tasks.due_to')
+                        <span class="green-text">{{$task->assigned->name}}</span> @lang('tasks::tasks.due_to')
                         <span class="green-text">{{$task->end_date}}</span>
                     </div>
                 </div>

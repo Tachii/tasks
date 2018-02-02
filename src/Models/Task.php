@@ -33,6 +33,9 @@ class Task extends Model
     protected $table = 'tasks';
 
     /**
+     *
+     * Setter mutator
+     *
      * @param $value
      * @return $this
      */
@@ -46,6 +49,13 @@ class Task extends Model
         }
     }
 
+    /**
+     *
+     * Getter mutator
+     *
+     * @param $value
+     * @return string
+     */
     public function getEndDateAttribute($value)
     {
         try {
@@ -54,6 +64,28 @@ class Task extends Model
             Log::error('Task getEndDateAttribute mutator error, wrong date params: ' . $exception->getMessage());
             return $value;
         }
+    }
 
+
+    /**
+     *
+     * Entity that created task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function issuer()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     *
+     * Entity assigned/responsible for the task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function assigned()
+    {
+        return $this->morphTo();
     }
 }
