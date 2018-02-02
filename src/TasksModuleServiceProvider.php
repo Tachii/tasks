@@ -4,11 +4,11 @@ namespace B4u\TasksModule;
 
 use App\Policies\Vendor\Task\TaskPolicy;
 use B4u\TasksModule\Models\Task;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\ServiceProvider;
 
-class TasksModuleServiceProvider extends ServiceProvider
+class TasksModuleServiceProvider extends AuthServiceProvider
 {
     protected $policies = [
         Task::class => TaskPolicy::class,
