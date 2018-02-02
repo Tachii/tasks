@@ -26,3 +26,4 @@
 @endif
 @include('tasks::list')
 @include('tasks::modals.task_create')
+@include('tasks::modals.task_edit')

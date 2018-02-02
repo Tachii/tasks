@@ -45,11 +45,15 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // ViewComposers for tasks view
         View::composer(
-            'tasks::modals.task_create', \App\Http\Vendor\Tasks\ViewComposers\TasksCreateModalComposer::class
+            'tasks::modals.task_create', \App\Http\Vendor\Tasks\ViewComposers\TaskCreateModalComposer::class
         );
 
         View::composer(
-            'tasks::list', \App\Http\Vendor\Tasks\ViewComposers\TasksListComposer::class
+            'tasks::list', \App\Http\Vendor\Tasks\ViewComposers\TaskListComposer::class
+        );
+
+        View::composer(
+            'tasks::modals.task_edit_body', \App\Http\Vendor\Tasks\ViewComposers\TaskEditModalComposer::class
         );
 
         // Loading routes

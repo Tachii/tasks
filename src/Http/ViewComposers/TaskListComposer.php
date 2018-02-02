@@ -3,7 +3,6 @@
 namespace App\Http\Vendor\Tasks\ViewComposers;
 
 use B4u\TasksModule\Models\Task;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;
 
 /**
@@ -13,7 +12,7 @@ use Illuminate\View\View;
  *
  * @package App\Http\Vendor\Task\ViewComposers
  */
-class TasksCreateModalComposer
+class TaskListComposer
 {
     /**
      * Bind data to the view.
@@ -24,7 +23,6 @@ class TasksCreateModalComposer
     public function compose(View $view)
     {
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
-        $view->with('issuer', User::first());
-        $view->with('responsibles', User::all()->pluck('name', 'id'));
+        $view->with('tasks', Task::all());
     }
 }

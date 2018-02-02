@@ -73,11 +73,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        try {
-            return response()->view('tasks::modals.edit', ['task' => $task], 200);
-        } catch (\Exception $exception) {
-            
-        }
+        return response()->view('tasks::modals.task_modal_edit_body', ['task' => $task], 200)->render();
     }
 
     /**
