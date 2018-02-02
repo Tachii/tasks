@@ -69,7 +69,7 @@ class TasksModuleServiceProvider extends ServiceProvider
         // Publish & registering security policies security policies
 
         $this->publishes([
-            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Task/ViewComposers'),
+            __DIR__ . '/Policies' => app_path('Policies/Vendor/Task'),
         ]);
 
         $this->registerPolicies();
