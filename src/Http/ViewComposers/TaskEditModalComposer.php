@@ -24,6 +24,6 @@ class TaskEditModalComposer
     {
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
         $view->with('issuer', User::first());
-        $view->with('responsibles', User::all()->pluck('name', 'id'));
+        $view->with('responsibles', User::get(['name', 'id']));
     }
 }

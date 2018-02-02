@@ -45,4 +45,15 @@ class Task extends Model
             return redirect()->back()->withErrors(['message' => trans('tasks::error_text')]);
         }
     }
+
+    public function getEndDateAttribute($value)
+    {
+        try {
+            return Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
+        } catch (\Exception $exception) {
+            Log::error('Task getEndDateAttribute mutator error, wrong date params: ' . $exception->getMessage());
+            return $value;
+        }
+
+    }
 }

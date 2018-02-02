@@ -63,7 +63,7 @@
         // Modal for task editing
         $(".task_edit_handler").on('click', function () {
             $.get($(this).data('url'), function (data) {
-                $('#taskEditModal').html(data).modal('show');
+                $('#taskEditModal').html(data).modal('show').find('[data-datepicker]').datepicker();
             });
         })
 

@@ -6,24 +6,25 @@
             </button>
             <h4 class="modal-title" id="taskCreateModalLabel">@lang('tasks::tasks.edit_task')</h4>
         </div>
-        {{Form::open(['url' => route('tasks.store'), 'method' => 'post'])}}
+        {{Form::open(['url' => route('tasks.edit', ['task' => $task->id]), 'method' => 'post'])}}
         <div class="modal-body">
             <div class="form-group">
                 <label for="description" class="control-label">@lang('tasks::tasks.task_description')</label>
                 <textarea rows="5" name="description" id="description"
                           placeholder="@lang('tasks::tasks.task_description_placeholder')"
-                          class="form-control"></textarea>
+                          class="form-control">{{$task->description}}</textarea>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" data-datepicker=""
-                       placeholder="@lang('tasks::tasks.due_date_placeholder')" value="" name="end_date">
+                       placeholder="@lang('tasks::tasks.due_date_placeholder')" value="{{$task->end_date}}"
+                       name="end_date">
             </div>
             <div class="form-group">
                 <label for="sel1" class="control-label">@lang('tasks::tasks.responsible_person')</label>
-                <input type="hidden" name="assigned_type" value="{{get_class($responsibles)}}">
+                <input type="hidden" name="assigned_type" value="{{get_class($responsibles->first())}}">
                 <select name="assigned_id" class="form-control" id="sel1">
-                    @foreach($responsibles as $id => $name)
-                        <option value="{{$id}}">{{$name}}</option>
+                    @foreach($responsibles as $responsible)
+                        <option value="{{$responsible->id}}">{{$responsible->name}}</option>
                     @endforeach
                 </select>
             </div>
