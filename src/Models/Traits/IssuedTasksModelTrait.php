@@ -2,7 +2,7 @@
 
 namespace B4u\TasksModule\Models\Traits;
 
-use B4u\TasksModule\Models\Tasks;
+use B4u\TasksModule\Models\Task;
 
 
 /**
@@ -19,6 +19,6 @@ trait IssuedTasksModelTrait
      */
     public function issuedTasks()
     {
-        return $this->morphMany(Tasks::class, 'issuer');
+        return $this->morphMany(Task::class, 'issuer');
     }
 }

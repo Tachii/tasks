@@ -2,7 +2,7 @@
 
 namespace App\Http\Vendor\Tasks\ViewComposers;
 
-use B4u\TasksModule\Models\Tasks;
+use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;
 
@@ -11,7 +11,7 @@ use Illuminate\View\View;
  *
  * Initialized in TasksModuleServiceProvider vendor folder.
  *
- * @package App\Http\Vendor\Tasks\ViewComposers
+ * @package App\Http\Vendor\Task\ViewComposers
  */
 class TasksCreateModalComposer
 {

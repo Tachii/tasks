@@ -3,7 +3,7 @@
 namespace B4u\TasksModule\Http\Controllers;
 
 use B4u\TasksModule\Http\Requests\TaskStoreRequest;
-use B4u\TasksModule\Models\Tasks;
+use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 
-class TasksController extends Controller
+class TaskController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -44,7 +44,7 @@ class TasksController extends Controller
     public function store(TaskStoreRequest $request)
     {
         try {
-            Tasks::create($request->all());
+            Task::create($request->all());
             return redirect()->back()->with(
                 'success',
                 trans('tasks::tasks.saved_text')
@@ -58,44 +58,56 @@ class TasksController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Tasks $tasks
+     * @param  Task $tasks
      * @return \Illuminate\Http\Response
      */
-    public function show(Tasks $tasks)
+    public function show(Task $tasks)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Tasks $tasks
-     * @return \Illuminate\Http\Response
+     * @param Task $task
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
-    public function edit(Tasks $tasks)
+    public function edit(Task $task)
     {
-
+        try {
+            return response()->view('tasks::modals.edit', ['task' => $task], 200);
+        } catch (\Exception $exception) {
+            
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Tasks $tasks
+     * @param  Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tasks $tasks)
+    public function update(Request $request, Task $task)
     {
-        //
+        try {
+            $task->fill($request->all())->save();
+            return redirect()->back()->with(
+                'success',
+                trans('tasks::tasks.saved_text')
+            );
+        } catch (\Exception $exception) {
+            Log::error('Task save error: ' . $exception->getMessage());
+            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')])->withInput($request->all());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Tasks $task
+     * @param  Task $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tasks $task)
+    public function destroy(Task $task)
     {
         try {
             $task->delete();

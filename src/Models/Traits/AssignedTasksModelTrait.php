@@ -2,7 +2,7 @@
 
 namespace B4u\TasksModule\Models\Traits;
 
-use B4u\TasksModule\Models\Tasks;
+use B4u\TasksModule\Models\Task;
 
 /**
  * Trait AssignedTasksModelTrait
@@ -18,6 +18,6 @@ trait AssignedTasksModelTrait
      */
     public function assignedTasks()
     {
-        return $this->morphMany(Tasks::class, 'assigned');
+        return $this->morphMany(Task::class, 'assigned');
     }
 }

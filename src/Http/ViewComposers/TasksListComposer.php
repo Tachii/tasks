@@ -2,7 +2,7 @@
 
 namespace App\Http\Vendor\Tasks\ViewComposers;
 
-use B4u\TasksModule\Models\Tasks;
+use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\View\View;
 
@@ -11,7 +11,7 @@ use Illuminate\View\View;
  *
  * Initialized in TasksModuleServiceProvider vendor folder.
  *
- * @package App\Http\Vendor\Tasks\ViewComposers
+ * @package App\Http\Vendor\Task\ViewComposers
  */
 class TasksListComposer
 {
@@ -24,6 +24,6 @@ class TasksListComposer
     public function compose(View $view)
     {
         //@TODO Replace data below with actual data, placeholders for now, to demonstrate logic.
-        $view->with('tasks', Tasks::all());
+        $view->with('tasks', Task::all());
     }
 }

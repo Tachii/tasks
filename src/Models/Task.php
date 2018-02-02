@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class Tasks
+ * Class Task
  *
- * Model entity for Tasks.
+ * Model entity for Task.
  *
  * @package B4u\TasksModule\Models
  */
-class Tasks extends Model
+class Task extends Model
 {
     /**
      * @var array

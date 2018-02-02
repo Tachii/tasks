@@ -40,7 +40,7 @@ class TasksModuleServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Tasks/ViewComposers'),
+            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Task/ViewComposers'),
         ]);
 
         // ViewComposers for tasks view
