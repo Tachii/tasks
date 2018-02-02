@@ -11,15 +11,19 @@
                 </div>
                 <div class="info-item-settings">
                     <div class="ii-ssettings-list">
-                        <a href="#" class="task_edit_handler btn btn-warning btn-sm"
-                           data-url="{{route('tasks.edit', ['task' => $task->id])}}">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </a>
-                        {{Form::open(['url' => route('tasks.destroy', ['task' => $task->id]), 'method' => 'delete'])}}
-                        <a href="#" class="task_delete_handler btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
-                        {{Form::close()}}
+                        @can('edit', $task)
+                            <a href="#" class="task_edit_handler btn btn-warning btn-sm"
+                               data-url="{{route('tasks.edit', ['task' => $task->id])}}">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        @endcan
+                        @can('delete', $task)
+                            {{Form::open(['url' => route('tasks.destroy', ['task' => $task->id]), 'method' => 'delete'])}}
+                            <a href="#" class="task_delete_handler btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                            {{Form::close()}}
+                        @endcan
                     </div>
                 </div>
             </div>

@@ -5,7 +5,6 @@ namespace B4u\TasksModule;
 use App\Policies\Vendor\Task\TaskPolicy;
 use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 
 class TasksModuleServiceProvider extends AuthServiceProvider
@@ -73,7 +72,5 @@ class TasksModuleServiceProvider extends AuthServiceProvider
         ]);
 
         $this->registerPolicies();
-
-        Gate::resource('tasks', 'TaskPolicy');
     }
 }
