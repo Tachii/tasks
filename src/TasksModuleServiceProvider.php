@@ -2,6 +2,7 @@
 
 namespace B4u\TasksModule;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -58,5 +59,15 @@ class TasksModuleServiceProvider extends ServiceProvider
 
         // Loading routes
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+
+        // Publish & registering security policies security policies
+
+        $this->publishes([
+            __DIR__ . '/Http/ViewComposers' => app_path('Http/Vendor/Task/ViewComposers'),
+        ]);
+
+        $this->registerPolicies();
+
+        Gate::resource('tasks', 'TaskPolicy');
     }
 }
