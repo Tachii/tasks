@@ -88,7 +88,7 @@ class TaskController extends Controller
      * @param Task $task
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function update(TaskStoreRequest $request, Task $task)
+    public function update(TaskUpdateRequest $request, Task $task)
     {
         try {
             $task->fill($request->all())->save();
