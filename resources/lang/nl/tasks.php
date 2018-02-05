@@ -20,7 +20,7 @@ return [
     'error_text' => 'Something went wrong during task deletion',
     'label' => 'Tasks',
     'new_task' => 'New Task',
-    'no_tasks' => 'No tasks',
+    'no_tasks' => 'Er zijn geen openstaande taken op het moment.',
     'responsible_person' => 'Responsible Person',
     'save' => 'Save',
     'saved_text' => 'Task saved successfully',

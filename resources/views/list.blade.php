@@ -29,7 +29,9 @@
             </div>
         @endforeach
     @else
-        @lang('tasks::tasks.no_tasks')
+        <div class="panel-body">
+            <div class="alert alert-info">@lang('tasks::tasks.no_tasks')</div>
+        </div>
     @endif
 </div>
 
