@@ -29,6 +29,15 @@ class Task extends Model
         'end_date',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('updated_at_desc', function (Builder $builder) {
+            $builder->orderBy('updated_at', 'desc');
+        });
+    }
+
     /**
      * @var string
      */
