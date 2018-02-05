@@ -3,6 +3,7 @@
 namespace B4u\TasksModule\Http\Controllers;
 
 use B4u\TasksModule\Http\Requests\TaskStoreRequest;
+use B4u\TasksModule\Http\Requests\TaskUpdateRequest;
 use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
