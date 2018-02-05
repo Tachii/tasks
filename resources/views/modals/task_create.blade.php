@@ -28,6 +28,8 @@
                 </div>
                 <input type="hidden" name="issuer_id" value="{{$issuer->id}}">
                 <input type="hidden" name="issuer_type" value="{{get_class($issuer)}}">
+            <input type="hidden" name="target_id" value="{{$target->id}}">
+            <input type="hidden" name="target_type" value="{{get_class($target)}}">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-simple" data-dismiss="modal">@lang('tasks::tasks.close')</button>
                     <button type="submit" class="btn btn-primary">@lang('tasks::tasks.save')</button>

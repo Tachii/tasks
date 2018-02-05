@@ -24,6 +24,8 @@ class Task extends Model
         'issuer_type',
         'assigned_id',
         'assigned_type',
+        §        'target_id',
+        'target_type',
         'end_date',
     ];
 

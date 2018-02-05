@@ -1,5 +1,5 @@
 <div class="info-list">
-    @if(isset($tasks))
+    @if(isset($tasks) && $tasks->isNotEmpty())
         @foreach($tasks as $task)
             <div class="info-item">
                 <div class="info-item-content">

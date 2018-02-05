@@ -22,6 +22,9 @@ class CreateTasksTable extends Migration
             $table->integer('assigned_id')->comment = 'Entity:id that is responsible for the task';
             $table->string('assigned_type')->comment = 'Entity:type that is responsible for the task';
 
+            $table->integer('target_id')->comment = 'Entity:id that is target of the task';
+            $table->string('target_type')->comment = 'Entity:type that is target of the task';
+
             $table->string('description')->comment = 'Description of the task';
             $table->date('end_date')->comment = 'Due date of the task';
 

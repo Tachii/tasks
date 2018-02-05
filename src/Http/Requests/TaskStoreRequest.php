@@ -36,6 +36,8 @@ class TaskStoreRequest extends FormRequest
             'issuer_type' => 'required|string|max:500',
             'assigned_id' => 'required|integer',
             'assigned_type' => 'required|string|max:500',
+            'target_id' => 'required|integer',
+            'target_type' => 'required|string|max:500',
             'end_date' => 'required|date',
         ];
     }
