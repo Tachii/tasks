@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
 
             $table->integer('issuer_id')->comment = 'Entity:id that creates the task';
-            $table->string('issuer_type')->comment = 'Entity:type that creates the task';;
+            $table->string('issuer_type')->comment = 'Entity:type that creates the task';
 
             $table->integer('assigned_id')->comment = 'Entity:id that is responsible for the task';
             $table->string('assigned_type')->comment = 'Entity:type that is responsible for the task';

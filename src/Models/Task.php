@@ -54,7 +54,7 @@ class Task extends Model
     public function setEndDateAttribute($value)
     {
         try {
-            $this->attributes['end_date'] = Carbon::createFromFormat('m/d/Y', $value)->format('Y-m-d');
+            $this->attributes['end_date'] = Carbon::createFromFormat(config('date.date_format'), $value)->format('Y-m-d');
         } catch (\Exception $exception) {
             Log::error('Task save error, wrong date params: ' . $exception->getMessage());
             return redirect()->back()->withErrors(['message' => trans('tasks::error_text')]);
