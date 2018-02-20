@@ -32,8 +32,8 @@ class TaskUpdateRequest extends FormRequest
     {
         return [
             'description' => 'required|string|max:500',
-            'issuer_id' => 'required|integer',
-            'issuer_type' => 'required|string|max:500',
+            'issuer_id' => 'nullable|integer',
+            'issuer_type' => 'nullable|string|max:500',
             'end_date' => 'required|date_format:' . config('date.date_format'),
         ];
     }
