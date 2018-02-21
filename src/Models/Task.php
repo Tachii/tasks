@@ -29,6 +29,10 @@ class Task extends Model
         'target_type',
         'end_date',
     ];
+    /**
+     * @var string
+     */
+    protected $table = 'tasks';
 
     protected static function boot()
     {
@@ -38,11 +42,6 @@ class Task extends Model
             $builder->orderBy('updated_at', 'desc');
         });
     }
-
-    /**
-     * @var string
-     */
-    protected $table = 'tasks';
 
     /**
      *
@@ -97,6 +96,17 @@ class Task extends Model
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function assigned()
+    {
+        return $this->morphTo();
+    }
+
+    /**
+     *
+     * Entity target of the task
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function target()
     {
         return $this->morphTo();
     }
