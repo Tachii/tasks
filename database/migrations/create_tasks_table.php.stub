@@ -16,10 +16,10 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->nullableMorphs('issuer')->comment = 'Entity that creates the task';
+            $table->nullableMorphs('issuer'); //'Entity that creates the task';
 
-            $table->morphs('assigned')->comment = 'Entity that is responsible for the task';
-            $table->morphs('target')->comment = 'Entity that is target of the task';
+            $table->morphs('assigned'); //'Entity that is responsible for the task';
+            $table->morphs('target'); //'Entity that is target of the task';
 
             $table->text('description')->comment = 'Description of the task';
             $table->date('end_date')->comment = 'Due date of the task';
