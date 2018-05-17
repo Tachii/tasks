@@ -8,9 +8,15 @@ use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 
+/**
+ * Class TaskController
+ * @package B4u\TasksModule\Http\Controllers
+ */
 class TaskController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -21,32 +27,12 @@ class TaskController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  TaskStoreRequest $request
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function store(TaskStoreRequest $request)
+    public function store(TaskStoreRequest $request): RedirectResponse
     {
         try {
             Task::create($request->all());
@@ -64,7 +50,7 @@ class TaskController extends Controller
      * Display the specified resource.
      *
      * @param  Task $tasks
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show(Task $tasks)
     {
@@ -73,10 +59,9 @@ class TaskController extends Controller
 
     /**
      * @param Task $task
-     * @return \Illuminate\Http\JsonResponse
-     * @throws \Throwable
+     * @return Response
      */
-    public function edit(Task $task)
+    public function edit(Task $task): Response
     {
         return response()->view('tasks::modals.task_edit_body', ['task' => $task], 200);
     }
@@ -85,11 +70,11 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param TaskStoreRequest $request
+     * @param TaskUpdateRequest $request
      * @param Task $task
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function update(TaskUpdateRequest $request, Task $task)
+    public function update(TaskUpdateRequest $request, Task $task): RedirectResponse
     {
         try {
             $task->fill($request->all())->save();
@@ -107,9 +92,9 @@ class TaskController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Task $task
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task): RedirectResponse
     {
         try {
             $task->delete();

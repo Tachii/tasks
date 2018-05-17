@@ -7,6 +7,10 @@ use B4u\TasksModule\Models\Task;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 use Illuminate\Support\Facades\View;
 
+/**
+ * Class TasksModuleServiceProvider
+ * @package B4u\TasksModule
+ */
 class TasksModuleServiceProvider extends AuthServiceProvider
 {
     protected $policies = [

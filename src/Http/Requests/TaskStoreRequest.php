@@ -38,7 +38,7 @@ class TaskStoreRequest extends FormRequest
             'assigned_type' => 'required|string|max:500',
             'target_id' => 'required|integer',
             'target_type' => 'required|string|max:500',
-            'end_date' => 'required|date_format:' . config('date.date_format')
+            //'end_date' => 'required|date_format:' . config('date.date_format')
         ];
     }
 }

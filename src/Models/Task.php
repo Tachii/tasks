@@ -2,9 +2,10 @@
 
 namespace B4u\TasksModule\Models;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -45,46 +46,11 @@ class Task extends Model
 
     /**
      *
-     * Setter mutator
-     *
-     * @param $value
-     * @return $this
-     */
-    public function setEndDateAttribute($value)
-    {
-        try {
-            $this->attributes['end_date'] = Carbon::createFromFormat(config('date.date_format'), $value)->format('Y-m-d');
-        } catch (\Exception $exception) {
-            Log::error('Task save error, wrong date params: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => trans('tasks::error_text')]);
-        }
-    }
-
-    /**
-     *
-     * Getter mutator
-     *
-     * @param $value
-     * @return string
-     */
-    public function getEndDateAttribute($value)
-    {
-        try {
-            return Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
-        } catch (\Exception $exception) {
-            Log::error('Task getEndDateAttribute mutator error, wrong date params: ' . $exception->getMessage());
-            return $value;
-        }
-    }
-
-
-    /**
-     *
      * Entity that created task
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
-    public function issuer()
+    public function issuer(): MorphTo
     {
         return $this->morphTo();
     }
@@ -93,9 +59,9 @@ class Task extends Model
      *
      * Entity assigned/responsible for the task
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
-    public function assigned()
+    public function assigned(): MorphTo
     {
         return $this->morphTo();
     }
@@ -104,10 +70,32 @@ class Task extends Model
      *
      * Entity target of the task
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return MorphTo
      */
-    public function target()
+    public function target(): MorphTo
     {
         return $this->morphTo();
     }
+
+//    public function setEndDateAttribute($value)
+//    {
+//        dd($value);
+//        try {
+//            $this->attributes['end_date'] = Carbon::createFromFormat(config('date.date_format'), $value)->format('Y-m-d');
+//        } catch (\Exception $exception) {
+//            Log::error('Task save error, wrong date params: ' . $exception->getMessage());
+//            return redirect()->back()->withErrors(['message' => trans('tasks::error_text')]);
+//        }
+//    }
+
+
+    /*public function getEndDateAttribute($value): string
+    {
+        try {
+            return Carbon::createFromFormat('Y-m-d', $value)->format('m/d/Y');
+        } catch (\Exception $exception) {
+            Log::error('Task getEndDateAttribute mutator error, wrong date params: ' . $exception->getMessage());
+            return $value;
+        }
+    }*/
 }
