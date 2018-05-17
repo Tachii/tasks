@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: glebzaveruha
- * Date: 1/30/18
- * Time: 12:34 PM
- */
 
 return [
     'assigned_to' => 'Assigned To',
@@ -26,5 +20,5 @@ return [
     'saved_text' => 'Task saved successfully',
     'task_description' => 'Description',
     'task_description_placeholder' => 'Task description here...',
-    'update' => 'Update'
+    'update' => 'Update',
 ];
