@@ -12,7 +12,7 @@ use Illuminate\View\View;
  *
  * @package App\Http\Vendor\Task\ViewComposers
  */
-class TaskCreateModalComposer
+class TaskCreateModalComposer extends AbstractComposer
 {
     /**
      * Bind data to the view.

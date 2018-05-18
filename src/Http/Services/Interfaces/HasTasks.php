@@ -2,6 +2,7 @@
 
 namespace B4u\TasksModule\Http\Services\Interfaces;
 
+use B4u\TasksModule\Models\Task;
 use Illuminate\Support\Collection;
 
 /**
@@ -15,12 +16,20 @@ interface HasTasks
      *
      * @return array
      */
-    public function getTaskCreationData(): array;
+    public static function getTaskCreationData(): array;
 
     /**
      * Method to get tasks for certain page
      *
      * @return Collection
      */
-    public function getTasks(): Collection;
+    public static function getTasks(): Collection;
+
+    /**
+     * Get data related to edited task
+     *
+     * @param Task $task
+     * @return array
+     */
+    public static function getTaskEditionData(Task $task): array;
 }

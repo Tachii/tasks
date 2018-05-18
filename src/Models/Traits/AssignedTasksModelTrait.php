@@ -20,4 +20,12 @@ trait AssignedTasksModelTrait
     {
         return $this->morphMany(Task::class, 'assigned');
     }
+
+    /**
+     * @return string
+     */
+    public function getUidAttribute(): string
+    {
+        return md5(class_basename(__CLASS__) . $this->id);
+    }
 }
