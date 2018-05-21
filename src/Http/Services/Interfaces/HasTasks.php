@@ -3,7 +3,7 @@
 namespace B4u\TasksModule\Http\Services\Interfaces;
 
 use B4u\TasksModule\Models\Task;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * Interface HasTasks
@@ -21,9 +21,9 @@ interface HasTasks
     /**
      * Method to get tasks for certain page
      *
-     * @return Collection
+     * @return LengthAwarePaginator
      */
-    public static function getTasks(): Collection;
+    public static function getTasks(): LengthAwarePaginator;
 
     /**
      * Get data related to edited task

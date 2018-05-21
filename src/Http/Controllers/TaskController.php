@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
@@ -47,17 +48,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  Task $tasks
-     * @return void
-     */
-    public function show(Task $tasks)
-    {
-        //
-    }
-
-    /**
      * @param Task $task
      * @return Response
      */
@@ -76,35 +66,48 @@ class TaskController extends Controller
      */
     public function update(TaskUpdateRequest $request, Task $task): RedirectResponse
     {
-        try {
-            $task->fill($request->all())->save();
-            return redirect()->back()->with(
-                'success',
-                trans('tasks::tasks.saved_text')
-            );
-        } catch (\Exception $exception) {
-            Log::error('Task save error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')])->withInput($request->all());
-        }
+        $task->fill($request->all())->save();
+        return redirect()->back()->with(
+            'success',
+            trans('tasks::tasks.saved_text')
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Task $task
+     * @param Task $task
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function destroy(Task $task): RedirectResponse
     {
-        try {
-            $task->delete();
-            return redirect()->back()->with(
-                'success',
-                trans('tasks::tasks.deleted_text')
-            );
-        } catch (\Exception $exception) {
-            Log::error('Task delete error: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['message' => trans('tasks::tasks.error_text')]);
+        $task->delete();
+        return redirect()->back()->with(
+            'success',
+            trans('tasks::tasks.deleted_text')
+        );
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|null|\Symfony\Component\HttpFoundation\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function massDestroy(Request $request)
+    {
+        $tasks = $request->tasks;
+
+        if (empty($tasks)) {
+            return null;
         }
+
+        $tasks = Task::find($tasks);
+        foreach ($tasks as $task) {
+            $this->authorize('delete', $task);
+            $task->delete();
+        }
+
+        return \response('Success', 200);
     }
 }
