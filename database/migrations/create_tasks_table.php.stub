@@ -17,9 +17,8 @@ class CreateTasksTable extends Migration
             $table->increments('id');
 
             $table->nullableMorphs('issuer'); //'Entity that creates the task';
-
-            $table->morphs('assigned'); //'Entity that is responsible for the task';
-            $table->morphs('target'); //'Entity that is target of the task';
+            $table->nullableMorphs('assigned'); //'Entity that is responsible for the task';
+            $table->nullableMorphs('target'); //'Entity that is target of the task';
 
             $table->text('description')->comment = 'Description of the task';
             $table->date('end_date')->comment = 'Due date of the task';
