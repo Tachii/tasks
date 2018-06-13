@@ -34,7 +34,6 @@ class TaskUpdateRequest extends FormRequest
             'description' => 'required|string|max:500',
             'issuer_id' => 'nullable|integer',
             'issuer_type' => 'nullable|string|max:500',
-            //'end_date' => 'required|date_format:' . config('date.date_format'),
         ];
     }
 }

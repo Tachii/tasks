@@ -32,13 +32,12 @@ class TaskStoreRequest extends FormRequest
     {
         return [
             'description' => 'required|string|max:500',
-            'issuer_id' => 'required|integer',
-            'issuer_type' => 'required|string|max:500',
-            'assigned_id' => 'required|integer',
-            'assigned_type' => 'required|string|max:500',
-            'target_id' => 'required|integer',
-            'target_type' => 'required|string|max:500',
-            //'end_date' => 'required|date_format:' . config('date.date_format')
+            'issuer_id' => 'nullable|integer',
+            'issuer_type' => 'nullable|string|max:500',
+            'assigned_id' => 'nullable|integer',
+            'assigned_type' => 'nullable|string|max:500',
+            'target_id' => 'nullable|integer',
+            'target_type' => 'nullable|string|max:500',
         ];
     }
 }
